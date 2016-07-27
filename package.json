@@ -1,0 +1,11 @@
+{
+  "name": "domojs-terminal",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npenin/domojs-terminal.git"
+  },
+  "dependencies": {
+    "pty.js": "^0.3.0"
+  }
+}

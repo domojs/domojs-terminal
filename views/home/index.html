@@ -1,0 +1,50 @@
+<style>
+    #console
+    {
+        color: #f0f0f0;
+        background: #000;
+        height:100%;
+        display:flex;
+    }
+    
+    .terminal {
+    margin:auto;
+    border: #000 solid 5px;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    font-size: 12pt;
+  }
+  .terminal-cursor {
+    color: #000;
+    background: #f0f0f0;
+  }
+</style>
+<script src="assets/terminal/js/term.js"></script>
+<div id="console" class="row">
+    <div class="terminal"></div>
+</div>
+<script>
+    var sterm=io('/terminal');
+    var term = new Terminal({
+      cols: 200,
+      rows: 39,
+      screenKeys: true
+    });
+
+    term.on('data', function(data) {
+      sterm.emit('stdin', data);
+    });
+
+    term.on('title', function(title) {
+      document.title += title;
+    });
+
+    term.open($('#console .terminal')[0]);
+
+    sterm.on('stdout', function(data) {
+      term.write(data);
+    });
+
+    sterm.on('disconnect', function() {
+      term.destroy();
+    });
+</script>
