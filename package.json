@@ -6,6 +6,6 @@
     "url": "https://github.com/npenin/domojs-terminal.git"
   },
   "dependencies": {
-    "pty.js": "^0.3.0"
+    "pty.js": "^0.3.1"
   }
 }

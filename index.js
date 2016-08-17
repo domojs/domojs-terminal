@@ -22,7 +22,7 @@ exports.init=function(config, app)
         });
         
         socket.on('stdin', function(data){
-            debug('received ',data);
+            //debug('received ',data);
             cp.write(data);
         });
         
